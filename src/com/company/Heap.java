@@ -97,21 +97,45 @@ public class Heap implements Observer {
     }
 
     public void reading(String path, String name) throws IOException {
-        FileReader rdr = new FileReader(path);
-        BufferedReader brdr = new BufferedReader(rdr);
-        int content = brdr.read();
 
-        while(content != -1) {
-            char key = (char) content;
-            for(int i=0; i<allCharacters.size(); ++i) {
-                if(key == allCharacters.get(i).getCharacter()) {
-                    allCharacters.get(i).setCases(allCharacters.get(i).getCases()+1);
-                }
-            }
-            Node novoChar = new Node(key);
-            addCharacter(novoChar);
-            content = brdr.read();
+        if(path.charAt(path.length()-1)!='/') {
+            path = path.concat("/");
+            path = path.concat(name);
+        } else {
+            path = path.concat(name);
         }
+
+        try {
+            FileReader rdr = new FileReader(path);
+            BufferedReader brdr = new BufferedReader(rdr);
+            int content = brdr.read();
+            int cont = 0;
+
+            while (content != -1) {
+                char key = (char) content;
+                System.out.println(key);
+                for (int i = 0; i < allCharacters.size(); ++i) {
+                    if (key == allCharacters.get(i).getCharacter()) {
+                        allCharacters.get(i).setCases(allCharacters.get(i).getCases() + 1);
+                        cont++;
+                    }
+                }
+                if(cont == 0) {
+                    Node novoChar = new Node(key);
+                    addCharacter(novoChar);
+                }
+                content = brdr.read();
+                cont = 0;
+            }
+            rdr.close();
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public Node createBinaryTree() {
@@ -175,6 +199,11 @@ public class Heap implements Observer {
     public void imprimirMap() {
         System.out.println("Numero de caracteres" + list.size());
         System.out.println("Tamanho do hashMap" + reMap.size());
+
+        for(int i=0; i<list.size(); ++i) {
+            System.out.println("Para: " + list.get(i));
+            //System.out.println("Remapeamento em bits: " + reMap.get(list.get(i)));
+        }
 
         if(list.size() == reMap.size()) {
             for(int i=0; i<list.size(); ++i) {
