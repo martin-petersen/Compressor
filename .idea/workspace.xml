@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa64c0d3-ec4d-4095-a66f-1667895e937f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Heap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Heap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="60" lean-forward="true" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+            <state relative-caret-position="124">
+              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -62,12 +60,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Heap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1904">
-              <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
+            <state relative-caret-position="2585">
+              <caret line="213" column="62" selection-start-line="213" selection-start-column="62" selection-end-line="213" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#637#638#0" expanded="true" />
                 <element signature="e#665#666#0" expanded="true" />
+                <element signature="e#973#974#0" expanded="true" />
+                <element signature="e#1003#1004#0" expanded="true" />
                 <element signature="e#567#568#0" expanded="true" />
                 <element signature="e#599#600#0" expanded="true" />
               </folding>
@@ -189,18 +189,18 @@
       <option name="presentableId" value="Default" />
       <updated>1570752827406</updated>
       <workItem from="1570752829059" duration="605000" />
-      <workItem from="1570901034873" duration="14157000" />
+      <workItem from="1570901034873" duration="15702000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14762000" />
+    <option name="totallyTimeSpent" value="16307000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1762918" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1762918" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -283,19 +283,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="60" lean-forward="true" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+        <state relative-caret-position="124">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Heap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1904">
-          <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
+        <state relative-caret-position="2585">
+          <caret line="213" column="62" selection-start-line="213" selection-start-column="62" selection-end-line="213" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#637#638#0" expanded="true" />
             <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1003#1004#0" expanded="true" />
             <element signature="e#567#568#0" expanded="true" />
             <element signature="e#599#600#0" expanded="true" />
           </folding>
