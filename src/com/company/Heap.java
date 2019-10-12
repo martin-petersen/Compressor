@@ -110,10 +110,11 @@ public class Heap implements Observer {
             }
             Node novoChar = new Node(key);
             addCharacter(novoChar);
+            content = brdr.read();
         }
     }
 
-    public Node createBinaryTree(ArrayList<Node> allCharacters) {
+    public Node createBinaryTree() {
         while(allCharacters.size() > 1) {
             Node n = peek();
             remove();
@@ -168,6 +169,18 @@ public class Heap implements Observer {
                 }
             }
             copyMap(n.getRight());
+        }
+    }
+
+    public void imprimirMap() {
+        System.out.println("Numero de caracteres" + list.size());
+        System.out.println("Tamanho do hashMap" + reMap.size());
+
+        if(list.size() == reMap.size()) {
+            for(int i=0; i<list.size(); ++i) {
+                System.out.println("Para: " + list.get(i));
+                System.out.println("Remapeamento em bits: " + reMap.get(list.get(i)));
+            }
         }
     }
 
