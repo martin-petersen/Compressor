@@ -2,12 +2,13 @@ package com.company;
 
 import java.util.Observable;
 
-public class Node extends Observable {
+public class Node {
     private int cases;
     private char character;
-    private String bits;
-    private Node left;
-    private Node right;
+    private String bits = "";
+    private Node left = null;
+    private Node right = null;
+
 
     public Node getLeft() {
         return left;
@@ -38,10 +39,8 @@ public class Node extends Observable {
         return cases;
     }
 
-    public void setCases(int cases) {
+    public void setCases() {
         this.cases++;
-        setChanged();
-        notifyObservers();
     }
 
     public char getCharacter() {
@@ -59,4 +58,5 @@ public class Node extends Observable {
     public void setBits(String bits) {
         this.bits = bits;
     }
+
 }

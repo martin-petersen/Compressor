@@ -6,10 +6,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class Heap implements Observer {
+public class Heap {
     private ArrayList<Node> allCharacters;
+    private ArrayList<Integer> allCases;
     private ArrayList<Character> list;
     private HashMap<Character,String> reMap;
+    private Node tree = null;
 
     public HashMap<Character, String> getReMap() {
         return reMap;
@@ -17,6 +19,7 @@ public class Heap implements Observer {
 
     public Heap() {
         this.allCharacters = new ArrayList<>();
+        this.allCases = new ArrayList<>();
         this.list = new ArrayList<>();
         this.reMap = new HashMap<>();
     }
@@ -24,7 +27,6 @@ public class Heap implements Observer {
     public void addCharacter(Node n) {
         allCharacters.add(n);
         heapifyUp(allCharacters.size()-1);
-        n.addObserver(this);
     }
 
     private boolean hasParent(int index) {
@@ -106,16 +108,11 @@ public class Heap implements Observer {
             BufferedReader brdr = new BufferedReader(rdr);
             int content = brdr.read();
             int cont = 0;
-            int aux = 0;
-            System.out.println("NO TEXTO:");
             while (content != -1) {
                 char key = (char) content;
-                aux+=1;
-                System.out.println("Letras lidas: " + aux);
-                System.out.println(key);
                 for (int i = 0; i < allCharacters.size(); ++i) {
                     if (key == allCharacters.get(i).getCharacter()) {
-                        allCharacters.get(i).setCases(allCharacters.get(i).getCases() + 1);
+                        allCharacters.get(i).setCases();
                         cont++;
                     }
                 }
@@ -126,8 +123,18 @@ public class Heap implements Observer {
                 content = brdr.read();
                 cont = 0;
             }
-            System.out.println("TOTAL: " + aux);
+            for(int i=0; i<allCharacters.size(); ++i) {
+                heapifyDown(i);
+            }
+            for(int i=0; i<allCharacters.size(); ++i) {
+                list.add(allCharacters.get(i).getCharacter());
+                allCases.add(allCharacters.get(i).getCases());
+            }
             rdr.close();
+
+            createBinaryTree();
+
+            this.tree = peek();
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -138,7 +145,7 @@ public class Heap implements Observer {
 
     }
 
-    public Node createBinaryTree() {
+    public void createBinaryTree() {
         while(allCharacters.size() > 1) {
             Node n = peek();
             remove();
@@ -148,79 +155,41 @@ public class Heap implements Observer {
             fusion.setLeft(n);
             fusion.setRight(m);
             addCharacter(fusion);
+            System.out.println("No Soma -> " + fusion.getCases() + " // No Esquerdo -> " + fusion.getLeft().getCases() + " // No Direito -> " + fusion.getRight().getCases());
         }
-        return peek();
+        System.out.println(allCharacters.size());
     }
 
-    public void reMap(Node binaryTree) {
-        if(binaryTree.getLeft() != null) {
-            if(binaryTree.getBits() == "-1") {
-                binaryTree.getLeft().setBits("0");
-                reMap(binaryTree.getLeft());
-            } else {
-                String aux = binaryTree.getBits();
-                aux = aux.concat("0");
-                binaryTree.getLeft().setBits(aux.concat(aux));
-                reMap(binaryTree.getLeft());
-            }
-        }
-        else if(binaryTree.getRight() != null) {
-            if(binaryTree.getBits() == "-1") {
-                binaryTree.getRight().setBits("1");
-                reMap(binaryTree.getRight());
-            } else {
-                String aux = binaryTree.getBits();
-                aux = aux.concat("1");
-                binaryTree.getRight().setBits(aux.concat(aux));
-                reMap(binaryTree.getRight());
-            }
-        }
+    public Node getTree() {
+        return tree;
     }
 
-    public void copyMap(Node n) {
-        if(n.getLeft() != null) {
-            for(int i=0; i<list.size(); ++i) {
-                if(n.getLeft().getCharacter() == list.get(i)) {
-                    reMap.put(list.get(i),n.getBits());
-                }
-            }
-            copyMap(n.getLeft());
+    public void reMap(Node node) {
+        if(node.getLeft() != null && node.getLeft().getCases() >= allCases.get(0)) {
+            node.getLeft().setBits(node.getBits().concat("1"));
+            reMap(node.getLeft());
         }
-        else if(n.getRight() != null) {
-            for(int i=0; i<list.size(); ++i) {
-                if(n.getLeft().getCharacter() == list.get(i)) {
-                    reMap.put(list.get(i),n.getBits());
-                }
-            }
-            copyMap(n.getRight());
+        else if (node.getRight() != null && node.getRight().getCases() <= allCases.get(0)) {
+            node.getLeft().setBits(node.getBits().concat("0"));
+            reMap(node.getRight());
+        }
+        System.out.println("Caractere -> " + list.get(0) + " // Ocorrencias -> " + allCases.get(0) + " // Remaped -> " + node.getBits());
+        allCases.remove(0);
+        list.remove(0);
+    }
+
+    public void v(Node node) {
+        while (allCases.size() >= 1) {
+            reMap(node);
         }
     }
 
-    public void imprimirMap() {
-        for(int i=0; i<allCharacters.size(); ++i) {
-            list.add(allCharacters.get(i).getCharacter());
-        }
-        System.out.println("Numero de caracteres: " + list.size());
-
-        for(int i=0; i<list.size(); ++i) {
-            System.out.println("Na posicao: " + i + "->" + list.get(i));
-        }
-        System.out.println("HEAP:");
-        for(int i=0; i<allCharacters.size(); ++i) {
-            System.out.println("Na posicao: " + i + "->" + allCharacters.get(i).getCharacter());
-        }
-    }
-
-    @Override
-    public void update(Observable nodeCasesSubject, Object arg) {
-        if(nodeCasesSubject instanceof Node) {
-            for (Node n: allCharacters) {
-                if(n.getCharacter() == (((Node) nodeCasesSubject).getCharacter())) {
-                    heapifyUp(allCharacters.indexOf(n));
-                    heapifyDown(allCharacters.indexOf(n));
-                    return;
-                }
-            }
+    public void s(Node node) {
+        if(node.getLeft() != null) {
+            System.out.println(node.getCases());
+            s(node.getLeft());
+        } else {
+            System.out.println("NULL");
         }
     }
 }
