@@ -8,41 +8,23 @@ import java.util.*;
 
 public class Heap implements Observer {
     private ArrayList<Node> allCharacters;
-    private char[] list;
+    private ArrayList<Character> list;
     private HashMap<Character,String> reMap;
-    private int listTamanho;
-    private int listSize;
 
     public HashMap<Character, String> getReMap() {
         return reMap;
     }
 
     public Heap() {
-        this.listTamanho = 1;
         this.allCharacters = new ArrayList<>();
-        this.list = new char[listTamanho];
+        this.list = new ArrayList<>();
         this.reMap = new HashMap<>();
-        this.listSize = 0;
     }
 
     public void addCharacter(Node n) {
-        ensureListCapacity();
         allCharacters.add(n);
-        list[getListSize()] = n.getCharacter();
-        listSize++;
         heapifyUp(allCharacters.size()-1);
         n.addObserver(this);
-    }
-
-    private int getListSize() {
-        return listSize;
-    }
-
-    private void ensureListCapacity() {
-        if (getListSize() == listTamanho) {
-            this.list = Arrays.copyOf(this.list, getListSize() + 1);
-            listTamanho = getListSize() + 1;
-        }
     }
 
     private boolean hasParent(int index) {
@@ -124,9 +106,13 @@ public class Heap implements Observer {
             BufferedReader brdr = new BufferedReader(rdr);
             int content = brdr.read();
             int cont = 0;
-
+            int aux = 0;
+            System.out.println("NO TEXTO:");
             while (content != -1) {
                 char key = (char) content;
+                aux+=1;
+                System.out.println("Letras lidas: " + aux);
+                System.out.println(key);
                 for (int i = 0; i < allCharacters.size(); ++i) {
                     if (key == allCharacters.get(i).getCharacter()) {
                         allCharacters.get(i).setCases(allCharacters.get(i).getCases() + 1);
@@ -140,6 +126,7 @@ public class Heap implements Observer {
                 content = brdr.read();
                 cont = 0;
             }
+            System.out.println("TOTAL: " + aux);
             rdr.close();
         }
         catch (FileNotFoundException e) {
@@ -192,17 +179,17 @@ public class Heap implements Observer {
 
     public void copyMap(Node n) {
         if(n.getLeft() != null) {
-            for(int i=0; i<getListSize(); ++i) {
-                if(n.getLeft().getCharacter() == list[i]) {
-                    reMap.put(list[i],n.getBits());
+            for(int i=0; i<list.size(); ++i) {
+                if(n.getLeft().getCharacter() == list.get(i)) {
+                    reMap.put(list.get(i),n.getBits());
                 }
             }
             copyMap(n.getLeft());
         }
         else if(n.getRight() != null) {
-            for(int i=0; i<getListSize(); ++i) {
-                if(n.getLeft().getCharacter() == list[i]) {
-                    reMap.put(list[i],n.getBits());
+            for(int i=0; i<list.size(); ++i) {
+                if(n.getLeft().getCharacter() == list.get(i)) {
+                    reMap.put(list.get(i),n.getBits());
                 }
             }
             copyMap(n.getRight());
@@ -210,10 +197,17 @@ public class Heap implements Observer {
     }
 
     public void imprimirMap() {
-        System.out.println("Numero de caracteres" + getListSize());
+        for(int i=0; i<allCharacters.size(); ++i) {
+            list.add(allCharacters.get(i).getCharacter());
+        }
+        System.out.println("Numero de caracteres: " + list.size());
 
-        for(int i=0; i<getListSize(); ++i) {
-            System.out.println("Na posicao: " + i + "->" + list[i]);
+        for(int i=0; i<list.size(); ++i) {
+            System.out.println("Na posicao: " + i + "->" + list.get(i));
+        }
+        System.out.println("HEAP:");
+        for(int i=0; i<allCharacters.size(); ++i) {
+            System.out.println("Na posicao: " + i + "->" + allCharacters.get(i).getCharacter());
         }
     }
 
