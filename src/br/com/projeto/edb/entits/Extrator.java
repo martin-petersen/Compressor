@@ -5,22 +5,32 @@ import java.util.*;
 
 public class Extrator {
     private byte[] bytes;
+    private HashMap<Character, String> map;
 
     public Extrator (String fileTxT, String fileEDZ, String fileEDT) throws IOException {
-        convertMail(readFileToByteArray(fileEDZ));
+        readTableFile(fileEDT);
+        readFileToByteArray(fileEDZ);
+        convertMail(this.bytes);
 
     }
 
-    private void readTableFile (String fileEDT) {
+    private void readTableFile (String fileEDT) throws IOException {
+        FileReader rdr = new FileReader(fileEDT);
+        BufferedReader brdr = new BufferedReader(rdr);
+        ArrayList<String> str = new ArrayList<>();
+        String st;
+        while((st = brdr.readLine()) != null) {
+            str.add(st);
+        }
 
-    }
-
-    public byte[] getBytes() {
-        return bytes;
-    }
-
-    public void setBytes(byte[] bytes) {
-        this.bytes = bytes;
+        for(int i = 0; i<str.size(); ++i) {
+            StringBuffer sb = new StringBuffer();
+            for(int j = 1; j<str.get(i).length(); ++j) {
+                sb.append(str.get(i).charAt(j));
+            }
+            System.out.println(sb);
+            //this.map.put(str.get(i).charAt(0),s);
+        }
     }
 
     private void readFileToByteArray (String fileEDZ){
@@ -44,7 +54,5 @@ public class Extrator {
         for (int i = 0; i < bytes.length; i++) {
             str.append(new StringBuilder(String.format("%8s", Integer.toBinaryString(bytes[i] & 0xFF)).replace(" ", "0")).reverse());
         }
-
-        System.out.println(str);
     }
 }

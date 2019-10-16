@@ -23,8 +23,8 @@ class CompressorTest {
 
     @Test
     public void extratorTest() throws IOException {
-        Extrator a = new Extrator(new String("C:\\Users\\Martin Petersen\\Desktop\\ProjetoEdbII-master\\P1\\src\\arquivos-de-teste\\testes\\teste1.txt"),
-                "C:\\Users\\Martin Petersen\\Desktop\\ProjetoEdbII-master\\P1\\src\\arquivos-de-teste\\testes\\teste.edz",
-                "C:\\Users\\Martin Petersen\\Desktop\\ProjetoEdbII-master\\P1\\src\\arquivos-de-teste\\testes\\teste.edt");
+        Extrator a = new Extrator(new String("/home/martin.rocha/Área de Trabalho/Compressor/src/arquivos-de-teste/testes/teste1.txt"),
+                "/home/martin.rocha/Área de Trabalho/Compressor/src/arquivos-de-teste/testes/teste.edz",
+                "/home/martin.rocha/Área de Trabalho/Compressor/src/arquivos-de-teste/testes/teste.edt");
     }
 }
