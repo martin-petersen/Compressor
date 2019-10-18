@@ -1,6 +1,7 @@
 package br.com.projeto.edb.entits;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.util.*;
 
 public class Compressor {
@@ -8,6 +9,7 @@ public class Compressor {
     public Compressor (String fileTxT, String fileEDC) throws IOException {
 
         HashMap<Character, Integer> hashmap = new HashMap<> (this.lettersFrequency(fileTxT));
+        hashmap.put((char)3,1);
         Heap heap = new Heap();
 
         heap.insert(hashmap);
@@ -22,25 +24,26 @@ public class Compressor {
     public Compressor (String fileTxT, String fileEDZ, String fileEDT) throws IOException {
 
         HashMap<Character, Integer> hashmap = new HashMap<> (this.lettersFrequency(fileTxT));
+        hashmap.put((char)3, 1);
         Heap heap = new Heap();
         heap.insert(hashmap);
         Node root = heap.createBinaryTree();
         HashMap<Character, String> codeMap = generateTableCode(root);
         String encrypted = generateEnchantedMail(fileTxT, codeMap);
-        System.out.println(encrypted);
         generateEDZ(generateBitSet(encrypted), fileEDZ);
         generateEDT(generateStringTableCodeEDT(codeMap), fileEDT);
 
     }
 
     private void generateEDZ(byte[] encrypted, String fileEDT) throws IOException {
-        OutputStream fileOutEDT = new FileOutputStream(fileEDT);
+        FileOutputStream fileOutEDT = new FileOutputStream(fileEDT);
         fileOutEDT.write(encrypted);
         fileOutEDT.close();
     }
 
     private void generateEDT(String tableCode, String fileEDT) throws IOException {
         FileOutputStream fileOutEDT = new FileOutputStream(fileEDT);
+        Writer wtr = new OutputStreamWriter(fileOutEDT,Charset.forName("ISO-8859-1"));
         for (int i = 0; i < tableCode.length(); ++i){
             fileOutEDT.write(tableCode.charAt(i));
         }
@@ -63,9 +66,8 @@ public class Compressor {
         while(it.hasNext()){
             Map.Entry mapElement = (Map.Entry)it.next();
             str.append(mapElement.getKey()).append(mapElement.getValue());
-            if (it.hasNext())
-                str.append('\n');
         }
+        str.append((char)1);
         return str.toString();
     }
 
@@ -77,6 +79,7 @@ public class Compressor {
             Map.Entry mapElement = (Map.Entry)it.next();
             str.append(mapElement.getKey()).append(mapElement.getValue());
         }
+        str.append((char)1);
         str.append('\n');
         return str.toString();
     }
@@ -93,24 +96,24 @@ public class Compressor {
 
     private String generateEnchantedMail(String fileNameIn, HashMap<Character, String> codeMap) throws IOException {
 
-        FileReader rdr = new FileReader(fileNameIn);
-        BufferedReader brdr = new BufferedReader(rdr);
-        int contentIn = brdr.read();
+        FileInputStream stream = new FileInputStream(fileNameIn);
+        Reader rdr = new InputStreamReader(stream, Charset.forName("ISO-8859-1"));
+        int contentIn = rdr.read();
 
         StringBuffer contenteEncriptedOut = new StringBuffer();
 
         while (contentIn != -1) {
             Character key = (char) contentIn;
             contenteEncriptedOut.append(codeMap.get(key));
-            contentIn = brdr.read();
+            contentIn = rdr.read();
         }
 
+        stream.close();
         rdr.close();
-        brdr.close();
+
+        contenteEncriptedOut.append(codeMap.get((char)3));
 
         return contenteEncriptedOut.toString();
-
-
     }
 
     private HashMap<Character, Integer> lettersFrequency(String fileName) throws IOException {

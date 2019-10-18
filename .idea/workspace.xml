@@ -1,42 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa64c0d3-ec4d-4095-a66f-1667895e937f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compressor/com/company/Heap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compressor/com/company/Heap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compressor/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compressor/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compressor/com/company/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compressor/com/company/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Heap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Heap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Node.java" afterDir="false" />
-    </list>
+    <list default="true" id="ae607956-b721-4108-b457-a78063142dd6" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+  <component name="FavoritesManager">
+    <favorites_list name="Projeto-EDB-II" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1SCeabG9oIoqSb46YXZIAx7bv2o" />
+  <component name="ProjectId" id="1RqLHArOTk0g3fO4K2bWKylcFtn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build.tools" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="br.com.projeto.edb.entits.Testes" />
+      <recent name="br.com.projeto.edb.entits" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.com.projeto.edb.entits" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -50,20 +68,100 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="Compressor" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
+  <component name="RunManager" selected="JUnit.ExtratorTest.extractTeste3">
+    <configuration name="CompressorTest.compressorTeste1EDTEDZ" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projeto-EDB-II" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.projeto.edb.entits.Testes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.projeto.edb.entits.Testes" />
+      <option name="MAIN_CLASS_NAME" value="br.com.projeto.edb.entits.Testes.CompressorTest" />
+      <option name="METHOD_NAME" value="compressorTeste1EDTEDZ" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CompressorTest.compressorTeste3EDTEDZ" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projeto-EDB-II" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.projeto.edb.entits.Testes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.projeto.edb.entits.Testes" />
+      <option name="MAIN_CLASS_NAME" value="br.com.projeto.edb.entits.Testes.CompressorTest" />
+      <option name="METHOD_NAME" value="compressorTeste3EDTEDZ" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExtratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projeto-EDB-II" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.projeto.edb.entits.Testes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.projeto.edb.entits.Testes" />
+      <option name="MAIN_CLASS_NAME" value="br.com.projeto.edb.entits.Testes.ExtratorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExtratorTest.extractTeste1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projeto-EDB-II" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.projeto.edb.entits.Testes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.projeto.edb.entits.Testes" />
+      <option name="MAIN_CLASS_NAME" value="br.com.projeto.edb.entits.Testes.ExtratorTest" />
+      <option name="METHOD_NAME" value="extractTeste1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExtratorTest.extractTeste3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projeto-EDB-II" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.projeto.edb.entits.Testes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.projeto.edb.entits.Testes" />
+      <option name="MAIN_CLASS_NAME" value="br.com.projeto.edb.entits.Testes.ExtratorTest" />
+      <option name="METHOD_NAME" value="extractTeste3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.ExtratorTest.extractTeste1" />
+      <item itemvalue="JUnit.ExtratorTest" />
+      <item itemvalue="JUnit.CompressorTest.compressorTeste1EDTEDZ" />
+      <item itemvalue="JUnit.CompressorTest.compressorTeste3EDTEDZ" />
+      <item itemvalue="JUnit.ExtratorTest.extractTeste3" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ExtratorTest.extractTeste3" />
+        <item itemvalue="JUnit.CompressorTest.compressorTeste3EDTEDZ" />
+        <item itemvalue="JUnit.ExtratorTest.extractTeste1" />
+        <item itemvalue="JUnit.CompressorTest.compressorTeste1EDTEDZ" />
+        <item itemvalue="JUnit.ExtratorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -72,16 +170,37 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fa64c0d3-ec4d-4095-a66f-1667895e937f" name="Default Changelist" comment="" />
-      <created>1570752827406</created>
+      <changelist id="ae607956-b721-4108-b457-a78063142dd6" name="Default Changelist" comment="" />
+      <created>1570389588960</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1570752827406</updated>
-      <workItem from="1570752829059" duration="605000" />
-      <workItem from="1570901034873" duration="15702000" />
-      <workItem from="1571072082563" duration="1557000" />
-      <workItem from="1571073969665" duration="3275000" />
-      <workItem from="1571077315275" duration="11415000" />
+      <updated>1570389588960</updated>
+      <workItem from="1570389592246" duration="598000" />
+      <workItem from="1570390395053" duration="2858000" />
+      <workItem from="1570396832652" duration="2508000" />
+      <workItem from="1570454013039" duration="2022000" />
+      <workItem from="1570468535804" duration="4764000" />
+      <workItem from="1570474187610" duration="7965000" />
+      <workItem from="1570558399274" duration="4420000" />
+      <workItem from="1570572666645" duration="1169000" />
+      <workItem from="1570904720534" duration="49000" />
+      <workItem from="1571006571531" duration="6647000" />
+      <workItem from="1571072594733" duration="8923000" />
+      <workItem from="1571083103517" duration="238000" />
+      <workItem from="1571083632410" duration="29000" />
+      <workItem from="1571085222092" duration="967000" />
+      <workItem from="1571089738120" duration="9642000" />
+      <workItem from="1571158775745" duration="1082000" />
+      <workItem from="1571168172135" duration="410000" />
+      <workItem from="1571176259072" duration="184000" />
+      <workItem from="1571176870068" duration="200000" />
+      <workItem from="1571181176458" duration="947000" />
+      <workItem from="1571238827270" duration="133000" />
+      <workItem from="1571238982273" duration="11000" />
+      <workItem from="1571252318966" duration="2789000" />
+      <workItem from="1571330941848" duration="1004000" />
+      <workItem from="1571332288603" duration="7080000" />
+      <workItem from="1571395871160" duration="6955000" />
     </task>
     <servers />
   </component>
